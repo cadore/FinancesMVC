@@ -1,0 +1,50 @@
+﻿@model IList<Finances.Entities.User>
+
+<header>
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Usuários</h2>
+        </div>
+        <div class="col-sm-6 text-right h2">
+            <a class="btn btn-primary" href="/Users/Form"><i class="fa fa-plus"></i> Novo Usuário</a>
+            <a class="btn btn-default" href="/Users"><i class="fa fa-refresh"></i> Atualizar</a>
+        </div>
+    </div>
+</header>
+
+<table class="table table-hover table-striped center-table">
+    @if (Model.Count > 0)
+    {
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th width = "20%"><center>Opções</center></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.id</td>
+                    <td>@u.name</td>
+                    <td>@u.email</td>
+                    <td class="actions text-center">
+                        <a href="/Users/Details/@u.id" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+                        <a href="/Users/Edit/@u.id" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+    else
+    {
+        <tbody>
+            <tr>
+                <td colspan="7">Nenhum registro encontrado.</td>
+            </tr>
+        </tbody>
+    }
+
+</table>
