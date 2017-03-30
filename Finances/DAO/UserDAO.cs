@@ -16,15 +16,26 @@ namespace Finances.DAO
         }
         public void Save(User us)
         {
+
+            if (context.Users.Any(x => x.login == us.login))
+            {
+                System.Diagnostics.Debug.WriteLine("true");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("false");
+            }
+
             if(us.id == 0)
+            {
                 context.Users.Add(us);
+            }                
             else
             {
                 context.Users.Attach(us);
                 context.Entry(us).State = System.Data.Entity.EntityState.Modified;
             }
             context.SaveChanges();
-            Console.WriteLine(us.id);
         }
 
         public IList<User> List()
@@ -34,7 +45,15 @@ namespace Finances.DAO
 
         public User Details(int? id)
         {
+            
             return context.Users.Find(id);
+        }
+
+        public void Delete(int? id)
+        {
+            User us = context.Users.Find(id);
+            context.Users.Remove(us);
+            context.SaveChanges();
         }
     }
 }

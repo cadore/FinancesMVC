@@ -2,10 +2,18 @@
 <br />
 @using (Html.BeginForm("Save", "Users", FormMethod.Post))
 {
-    @Html.HiddenFor(u => u.id)
+    if (Model != null)
+    {
+        @Html.HiddenFor(u => u.id)
+    }
+    
     @Html.LabelFor(u => u.name, "Nome")
     @Html.TextBoxFor(u => u.name, new { @class = "form-control" })
     @Html.ValidationMessageFor(u => u.name)
+    
+    @Html.LabelFor(u => u.login, "Login:")
+    @Html.TextBoxFor(u => u.login, new { @class = "form-control" })
+    @Html.ValidationMessageFor(u => u.login)
 
     @Html.LabelFor(u => u.email, "E-mail")
     @Html.TextBoxFor(u => u.email, new { @class = "form-control" })
@@ -13,9 +21,17 @@
 
     <br />
     <div id="actions" class="row">
-    <div class="col-md-12">
-      <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Salvar</button>
-      <a href="/Users" class="btn btn-default"><i class="fa fa-ban"></i> Cancelar</a>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Salvar</button>
+            <a href="/Users" class="btn btn-default"><i class="fa fa-ban"></i> Cancelar</a>
+            @if (Model != null)
+            {
+                if (Model.id > 0)
+                {
+                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete"><i class="fa fa-trash"></i> Excluir</a>
+                }
+            }
+        </div>
     </div>
-  </div>
 }
+@Html.Partial("~/Views/Users/Modals.cshtml", Model)

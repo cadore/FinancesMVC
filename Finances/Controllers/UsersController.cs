@@ -30,14 +30,21 @@ namespace Finances.Controllers
 
         public ActionResult Save(User us)
         {
-            if (ModelState.IsValid)
+            if (us == null)
             {
-                userDAO.Save(us);
                 return RedirectToAction("Index");
             }
             else
             {
-                return View("Form", us);
+                if (ModelState.IsValid)
+                {
+                    userDAO.Save(us);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View("Form", us);
+                }
             }
         }
 
@@ -45,14 +52,14 @@ namespace Finances.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             else
             {
                 var us = userDAO.Details(id);
                 if (us == null)
                 {
-                    return HttpNotFound();
+                    return RedirectToAction("Index");
                 }
                 return View(us);
             }
@@ -62,14 +69,24 @@ namespace Finances.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             var us = userDAO.Details(id);
             if (us == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View("Form", us);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return RedirectToAction("Index");
+            }
+            userDAO.Delete(id);
+            return RedirectToAction("Index");
         }
 	}
 }

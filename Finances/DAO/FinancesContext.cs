@@ -10,7 +10,6 @@ namespace Finances.DAO
     public class FinancesContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-
         public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

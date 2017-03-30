@@ -13,6 +13,13 @@
         </dd>
 
         <dt>
+            @Html.LabelFor(m => m.login, "Login: ")
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.login)
+        </dd>
+
+        <dt>
             @Html.LabelFor(m => m.email, "E-mail: ")
         </dt>
         <dd>
@@ -20,8 +27,18 @@
         </dd>
 
     </dl>
-</div>
-<p>
-    <a class="btn btn-warning" href="/Users/Edit/@Model.id"><i class="fa fa-pencil"></i> Editar</a>
-    <a class="btn btn-default" href="/Users"><i class="fa fa-undo"></i> Voltar</a>
-</p>
+    </div>
+    <div id="actions" class="row">
+        <div class="col-md-12">
+            <a class="btn btn-warning" href="/Users/Edit/@Model.id"><i class="fa fa-pencil"></i> Editar</a>
+            <a class="btn btn-default" href="/Users"><i class="fa fa-undo"></i> Voltar</a>
+            @if (Model != null)
+            {
+                if (Model.id > 0)
+                {
+                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete"><i class="fa fa-trash"></i> Excluir</a>
+                }
+            }
+        </div>
+    </div>
+@Html.Partial("~/Views/Users/Modals.cshtml", Model)

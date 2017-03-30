@@ -41,3 +41,7 @@ C:\Users\WCadore\Programação\C#\Projects\FinancesMVC\Finances\bin\Ninject.Web.
 C:\Users\WCadore\Programação\C#\Projects\FinancesMVC\Finances\bin\Ninject.Web.Mvc.xml
 C:\Users\WCadore\Programação\C#\Projects\FinancesMVC\Finances\obj\Debug\Finances.Migrations.InitialMigration.resources
 C:\Users\WCadore\Programação\C#\Projects\FinancesMVC\Finances\obj\Debug\Finances.csproj.GenerateResource.Cache
+C:\Users\WCadore\Programação\C#\Projects\FinancesMVC\Finances\obj\Debug\Finances.Migrations.AddColumnLoginToUser.resources
+C:\Users\WCadore\Programação\C#\Projects\FinancesMVC\Finances\obj\Debug\Finances.Migrations.AlterNameColumns.resources
+C:\Users\WCadore\Programação\C#\Projects\FinancesMVC\Finances\obj\Debug\Finances.Migrations.Unique.resources
+C:\Users\WCadore\Programação\C#\Projects\FinancesMVC\Finances\obj\Debug\Finances.Migrations.ReverseUnique.resources

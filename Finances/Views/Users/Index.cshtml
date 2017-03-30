@@ -19,8 +19,9 @@
         <tr>
             <th>Id</th>
             <th>Nome</th>
+            <th>Login</th>
             <th>E-mail</th>
-            <th width = "20%"><center>Opções</center></th>
+            <th width="20%"><center>Opções</center></th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
                 <tr>
                     <td>@u.id</td>
                     <td>@u.name</td>
+                    <td>@u.login</td>
                     <td>@u.email</td>
                     <td class="actions text-center">
                         <a href="/Users/Details/@u.id" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
@@ -46,5 +48,4 @@
             </tr>
         </tbody>
     }
-
 </table>

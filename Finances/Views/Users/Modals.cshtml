@@ -1,0 +1,28 @@
+﻿@model Finances.Entities.User
+
+@using (Html.BeginForm("Delete", "Users", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.id)
+    <div class="modal fade" id="modal-delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title">Confirmação</h3>
+                </div>
+                <div class="modal-body">
+                    <h4>Excluir Usuário</h4>
+                    <p>Tem certeza que deseja excluir o usuário '@(Model != null ? Model.name : "")'?</p>
+                </div>
+                <div class="modal-footer">
+                    <div id="actions" class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Excluir</button>
+                            <a class="btn btn-default" data-dismiss="modal"><i class="fa fa-undo"></i> Voltar</a>
+                        </div>
+                    </div>               
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+}
