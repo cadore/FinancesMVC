@@ -2,22 +2,37 @@
 <br />
 @using (Html.BeginForm("Save", "Users", FormMethod.Post))
 {
-    if (Model != null)
+    if (Model != null && Model.id > 0)
     {
-        @Html.HiddenFor(u => u.id)
+        //Html.HiddenFor(u => u.id)
+        <div class="row">
+            <div class="col-md-1">
+                @Html.LabelFor(u => u.id, "Cod.")
+                @Html.TextBoxFor(u => u.id, new { @class = "form-control", @readonly = "" })
+            </div>
+        </div>
     }
     
-    @Html.LabelFor(u => u.name, "Nome")
-    @Html.TextBoxFor(u => u.name, new { @class = "form-control" })
-    @Html.ValidationMessageFor(u => u.name)
-    
-    @Html.LabelFor(u => u.login, "Login:")
-    @Html.TextBoxFor(u => u.login, new { @class = "form-control" })
-    @Html.ValidationMessageFor(u => u.login)
+    <div class="row">
+        <div class="col-md-8">
+            @Html.LabelFor(u => u.name, "Nome")
+            @Html.TextBoxFor(u => u.name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(u => u.name)
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(u => u.login, "Login")
+            @Html.TextBoxFor(u => u.login, new { @class = "form-control" })
+            @Html.ValidationMessageFor(u => u.login)
+        </div>
+    </div>
 
-    @Html.LabelFor(u => u.email, "E-mail")
-    @Html.TextBoxFor(u => u.email, new { @class = "form-control" })
-    @Html.ValidationMessageFor(u => u.email)
+    <div class="row">
+        <div class="col-md-12">
+            @Html.LabelFor(u => u.email, "E-mail")
+            @Html.TextBoxFor(u => u.email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(u => u.email)
+        </div>
+    </div>
 
     <br />
     <div id="actions" class="row">

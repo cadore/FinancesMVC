@@ -184,13 +184,11 @@
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAO\FinancesContext.cs" />
     <Compile Include="DAO\UserDAO.cs" />
-    <Compile Include="EFHelpers\EFMetadataMappingHelper.cs" />
     <Compile Include="Entities\Transaction.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="EFHelpers\Unique.cs" />
     <Compile Include="Migrations\201703280303499_InitialMigration.cs" />
     <Compile Include="Migrations\201703280303499_InitialMigration.Designer.cs">
       <DependentUpon>201703280303499_InitialMigration.cs</DependentUpon>
