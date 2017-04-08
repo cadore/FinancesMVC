@@ -15,8 +15,7 @@ namespace Finances.Entities
         [Required(ErrorMessage = "Informe o nome do Usuário")]
         public string name { get; set; }
 
-        [Required(ErrorMessage = "Informe o Login do Usuário")/*,
-        Unique(ErrorMessage = "O login '{0}' ja esta cadastrado para outro usuário")*/]
+        [Required(ErrorMessage = "Informe o Login do Usuário")]
         public string login { get; set; }
 
         [Required(ErrorMessage = "Informe o email do Usuário"), 

@@ -16,6 +16,7 @@ namespace System.ComponentModel.DataAnnotations
     {
 
         public bool New { get; set; }
+        public Object obj { get; set; }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
@@ -27,6 +28,7 @@ namespace System.ComponentModel.DataAnnotations
             var className = obj.ToString().Split('.').Last();
             var propertyName = validationContext.MemberName;
             var parameterName = string.Format("@{0}", propertyName);
+            
             
             var sql = string.Format("SELECT COUNT(*) FROM {0} WHERE {1}={2}", 
                 className.ToLower() + "s", propertyName, parameterName);
